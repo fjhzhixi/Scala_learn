@@ -26,16 +26,16 @@ trait Option[+A] {
 
 // 提升函数,将一个普通函数封装成Option=>Option模式的
 
-def lift[A, B](f: A => B): Option[A] => Option[B] = _ map f
+//def lift[A, B](f: A => B): Option[A] => Option[B] = _ map f
 
 // 封装函数,将一个异常处理类函数可以使用Option处理
-def Try[A](a: =>A): Option[A] = {
+/*def Try[A](a: =>A): Option[A] = {
   try {
     Some(a)
   }catch {
     case _: Exception => None
   }
-}
+}*/
 
 case class Some[+A] (get: A) extends Option[A]
 case object None extends Option[Nothing]
